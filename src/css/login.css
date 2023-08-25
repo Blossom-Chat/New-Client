@@ -1,0 +1,221 @@
+.login {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+.login .main {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 450px;
+  max-height: calc(100dvh - 40px);
+  width: 800px;
+  max-width: calc(100dvw - 40px);
+  border: 2px solid rgb(var(--dark-600));
+  border-radius: 10px;
+  -webkit-backdrop-filter: blur(3px) saturate(180%);
+          backdrop-filter: blur(3px) saturate(180%);
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: 1s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-property: top, opacity;
+}
+.login .main .transparent {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-direction: column;
+  width: 180px;
+  padding: 10px;
+  background: rgba(var(--dark-200), 0.8);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.login .main .transparent img {
+  width: 110px;
+  height: 110px;
+  padding: 35px;
+  padding-right: 0px;
+  pointer-events: none;
+}
+.login .main .transparent p {
+  margin: 0px;
+  font-size: 10px;
+  text-align: left;
+  pointer-events: none;
+}
+.login .main .transparent p a {
+  pointer-events: auto;
+}
+.login .main .opaque {
+  background: rgb(var(--dark-200));
+  flex-grow: 1;
+  border-left: 2px solid rgba(var(--dark-600));
+  overflow-y: scroll;
+  position: relative;
+}
+.login .main .opaque div {
+  position: absolute;
+  top: 50%;
+  left: 80px;
+  right: 66px;
+  transform: translateY(-50%);
+  padding: 15px;
+}
+.login .main .opaque div h1 {
+  font-size: 30px;
+  margin: 0px;
+  width: 100%;
+  text-align: center;
+  pointer-events: none;
+}
+.login .main .opaque div p {
+  margin: 10px 0px;
+  color: rgb(var(--light-500));
+  width: 100%;
+  text-align: center;
+  pointer-events: none;
+}
+.login .main .opaque div div {
+  all: revert;
+  width: 100%;
+  border-top: 1px solid rgb(var(--dark-600));
+  border-bottom: 1px solid rgb(var(--dark-600));
+  padding: 15px 0px;
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  flex-direction: column;
+  margin-top: 5px;
+}
+.login .main .opaque div div h3 {
+  margin: 0px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: rgb(var(--light-400));
+  pointer-events: none;
+}
+.login .main .opaque div div h3 .error {
+  color: #f44;
+  font-size: 11px;
+  margin-top: -1px;
+}
+.login .main .opaque div div input {
+  height: 18px;
+  padding: 8px;
+  background: rgb(var(--dark-200));
+  border: 1px solid rgb(var(--dark-600));
+  border-radius: 4px;
+  width: calc(100% - 18px);
+  pointer-events: auto;
+  color: rgb(var(--light-300));
+  display: inline-block;
+}
+.login .main .opaque div div input::-moz-placeholder {
+  color: rgb(var(--light-500));
+}
+.login .main .opaque div div input::placeholder {
+  color: rgb(var(--light-500));
+}
+.login .main .opaque div div .container {
+  display: flex;
+}
+.login .main .opaque div div .container .input {
+  width: calc(100% - 57px);
+}
+.login .main .opaque div div .container .password {
+  width: 36px;
+  display: inline-flex;
+  margin-top: 0px;
+  margin-left: 3px;
+  padding: 0px;
+  align-items: center;
+  justify-content: center;
+  color: rgb(var(--light-400));
+}
+.login .main .opaque div button {
+  width: 100%;
+  height: 36px;
+  padding: 10px;
+  margin-top: 15px;
+  background: rgb(var(--dark-200));
+  border: 1px solid rgb(var(--dark-600));
+  border-radius: 4px;
+  pointer-events: auto;
+  color: rgb(var(--light-300));
+  cursor: pointer;
+}
+.login .main .opaque div button:hover {
+  background: rgba(var(--dark-300), 0.7);
+}
+.login .main .opaque div h4 {
+  margin: 0px;
+  padding-top: 15px;
+  font-weight: 500;
+  font-size: 12px;
+  width: 100%;
+  display: none;
+}
+.login .email {
+  opacity: 0;
+  z-index: 1;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: calc(100dvh - 40px);
+  width: 400px;
+  max-width: calc(100dvw - 40px);
+  border: 2px solid rgb(var(--dark-600));
+  border-radius: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  pointer-events: none;
+  background: rgb(var(--dark-200));
+  overflow-y: scroll;
+  padding: 30px;
+  box-shadow: 0px 0px 0px 4096px rgba(0, 0, 0, 0.4);
+  transition: 1s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-property: top, opacity;
+  text-align: center;
+}
+.login .email h2 {
+  margin: 0px;
+  margin-bottom: 15px;
+}
+.login .author {
+  position: absolute;
+  left: 1px;
+  bottom: 1px;
+  padding: 2px;
+  background: rgba(var(--dark-200), 0.8);
+  -webkit-backdrop-filter: blur(3px) saturate(180%);
+          backdrop-filter: blur(3px) saturate(180%);
+  border-radius: 2px;
+  font-size: 10px;
+  max-width: calc(100dvw - 6px);
+  height: 1em;
+  pointer-events: none;
+}
+.login .author p {
+  margin: 0px;
+  height: 1em;
+}
+.login .author p span {
+  color: rgba(var(--light-300));
+}
+.login .author p span a {
+  pointer-events: auto;
+}/*# sourceMappingURL=login.css.map */

@@ -1,0 +1,38 @@
+<div class="login">
+    <div class="main">
+        <span class="transparent">
+            <img src="/src/blossom.svg">
+            <p>Already have an account? <a href="javascript:void(0)" onclick="Router.display('login')">Log In.</a></p>
+        </span>
+        <span class="opaque">
+            <div>
+                <h1>Welcome.</h1>
+                <p>Please sign up below.</p>
+                <div>
+                    <span style="margin-bottom: 15px">
+                        <h3>Username</h3>
+                        <input type="text">
+                    </span>
+                    <span style="margin-bottom: 15px">
+                        <h3>Email</h3>
+                        <input type="text" placeholder="user@example.com">
+                    </span>
+                    <span>
+                        <h3>Password</h3>
+                        <span class="container">
+                            <input type="password" class="input">
+                            <button class="password"><span class="material-symbols-rounded">visibility</span></button>
+                        </span>
+                    </span>
+                </div>
+                <button data-submit>Sign Up</button>
+                <h4>Already have an account? <a href="javascript:void(0)" onclick="Router.display('login')">Log In.</a></h4>
+            </div>
+        </span>
+    </div>
+    <div class="email">
+        <h2>Please check your email for a verification link.</h2>
+        <span loading></span>
+    </div>
+    <div class="author"></div>
+</div>

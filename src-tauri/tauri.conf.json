@@ -1,0 +1,70 @@
+{
+  "build": {
+    "beforeDevCommand": "",
+    "beforeBuildCommand": "",
+    "devPath": "../src",
+    "distDir": "../src",
+    "withGlobalTauri": true
+  },
+  "package": {
+    "productName": "Blossom",
+    "version": "../package.json"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false,
+      "fs": {
+        "all": true,
+        "scope": [
+          "**"
+        ]
+      },
+      "os": {
+        "all": true
+      },
+      "window": {
+        "all": true
+      }
+    },
+    "bundle": {
+      "active": true,
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "identifier": "dev.kontroll.blossom",
+      "targets": [
+        "deb",
+        "appimage",
+        "msi",
+        "dmg"
+      ],
+      "publisher": "KontrollFreek",
+      "category": "SocialNetworking",
+      "shortDescription": "A simple chat app, inspired by the best.",
+      "longDescription": "A simple chat app, inspired by the best."
+    },
+    "security": {
+      "csp": null
+    },
+    "updater": {
+      "active": false
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "resizable": true,
+        "title": "Blossom",
+        "width": 1280,
+        "height": 720,
+        "minWidth": 500,
+        "minHeight": 200,
+        "center": true,
+        "transparent": true
+      }
+    ]
+  }
+}
