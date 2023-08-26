@@ -45,9 +45,9 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           files: |
-            ./src-tauri/target/release/bundle/deb/Blossom_${{ steps.version.outputs.prop }}_amd64.deb
-            ./src-tauri/target/release/bundle/appimage/Blossom_${{ steps.version.outputs.prop }}_amd64.AppImage
-            ./src-tauri/target/release/bundle/msi/Blossom_${{ steps.version.outputs.prop }}_x64_en-US.msi
-            ./src-tauri/target/release/bundle/dmg/Blossom_${{ steps.version.outputs.prop }}_x64.dmg
+            ./src-tauri/target/release/bundle/deb/blossom_${{ steps.version.outputs.prop }}_amd64.deb
+            ./src-tauri/target/release/bundle/appimage/blossom_${{ steps.version.outputs.prop }}_amd64.AppImage
+            ./src-tauri/target/release/bundle/msi/blossom_${{ steps.version.outputs.prop }}_x64_en-US.msi
+            ./src-tauri/target/release/bundle/dmg/blossom_${{ steps.version.outputs.prop }}_x64.dmg
           tag_name: v${{ steps.version.outputs.prop }}
           prerelease: true
