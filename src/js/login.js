@@ -117,13 +117,18 @@
         }
     }
 
-    document.querySelector('[data-submit]').onclick = async () => {
+    let processing = false
+
+    async function submit() {
+        processing = true
         let allfilled = true
         document.querySelectorAll('input').forEach(i => {
             if (i.value == '') allfilled = false
         })
 
         if (!allfilled) return
+
+        document.querySelector('[data-submit]').innerHTML = '<span loading style="width: 12px"></span>'
 
         let auth = await new Promise(async resolve => {
             if (Router.currentpage == 'login') {
@@ -149,6 +154,8 @@
                             document.querySelectorAll('.opaque h3')[1].innerHTML += `<span class="error">&nbsp;&nbsp;${res.reason}</span>`
                             break
                     }
+                    document.querySelector('[data-submit]').innerHTML = 'Log In'
+                    processing = false
                 } else resolve(res)
             } else {
                 document.querySelectorAll('.opaque h3')[0].innerHTML = 'Username'
@@ -160,7 +167,6 @@
                     body: JSON.stringify({ username: document.querySelectorAll('input')[0].value, email: document.querySelectorAll('input')[1].value, password: document.querySelectorAll('input')[2].value }),
                     headers: { 'Content-Type': 'application/json' }
                 }).then(a => a.json())
-
                 
                 if (res.success == false) {
                     switch (res.problem) {
@@ -179,6 +185,8 @@
                             document.querySelectorAll('.opaque h3')[2].innerHTML += `<span class="error">&nbsp;&nbsp;${res.reason}</span>`
                             break
                     }
+                    document.querySelector('[data-submit]').innerHTML = 'Sign Up'
+                    processing = false
                 } else {
                     document.querySelector('.email').style.opacity = '1'
                     document.querySelector('.email').style.top = '50%'
@@ -204,9 +212,14 @@
         Storage.authkey = auth.authkey
         Storage.id = auth.id
 
-        await new Promise(r => setTimeout(r, 500))
+        await new Promise(r => setTimeout(r, 1000))
 
         Router.display('home')
+    }
+
+    document.querySelector('[data-submit]').onclick = submit
+    document.onkeydown  = e => {
+        if (!e.repeat && e.key == 'Enter') submit()
     }
 
 })()

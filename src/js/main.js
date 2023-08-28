@@ -1,9 +1,3 @@
-window.addEventListener('load', () => {
-    if (window.__TAURI__ == undefined) {
-        document.body.innerHTML = 'Please use the client.'
-    }
-})
-
 const { fs, os } = window.__TAURI__
 let Storage = {}
 
