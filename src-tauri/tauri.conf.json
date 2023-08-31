@@ -60,7 +60,7 @@
         "title": "Blossom",
         "width": 1280,
         "height": 720,
-        "minWidth": 500,
+        "minWidth": 800,
         "minHeight": 200,
         "center": true,
         "transparent": true

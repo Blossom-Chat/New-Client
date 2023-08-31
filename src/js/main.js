@@ -16,8 +16,7 @@ async function get_environment_variable(name) {
     } catch (err) { return err }
 };
 
-
-async function save() {
+async function getpath() {
     let type = await os.type()
     let path
     switch (type) {
@@ -32,26 +31,18 @@ async function save() {
             path = '/Library/Containers/etc/Blossom/save.dat'
             break
     }
+    return path
+}
+
+async function save() {
+    let path = await getpath()
 
     await fs.writeFile(path, btoa(JSON.stringify(Storage)))
     return
 };
 
 async function load() {
-    let type = await os.type()
-    let path
-    switch (type) {
-        case 'Windows_NT':
-        default:
-            path = await get_environment_variable('APPDATA') + '\\Blossom\\save.dat'
-            break
-        case 'Linux':
-            path = await get_environment_variable('HOME') + '\\Blossom\\save.dat'
-            break
-        case 'Darwin':
-            path = '~\\Library\\Containers\\etc\\Blossom\\save.dat'
-            break
-    }
+    let path = await getpath()
 
     if (!(await fs.exists(path))) return {}
 
@@ -87,6 +78,8 @@ window.addEventListener('load', async () => {
             Router.display('login')
             remove('authkey')
         }
-        else Router.display('home', null, false)
+        else Router.display('home')
     } else Router.display('login')
+
+    // Router.display('home')
 })
