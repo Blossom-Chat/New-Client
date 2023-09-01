@@ -1,0 +1,130 @@
+.servers {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    width: 70px;
+    padding: 10px 0px;
+    overflow: auto;
+    background: rgb(var(--dark-100));
+}
+
+.topnav {
+    position: absolute;
+    top: 0px;
+    left: 70px;
+    right: 0px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: stretch;
+    background: rgb(var(--dark-500));
+
+    .channelnav {
+        width: 250px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        background: rgba(var(--dark-200), .8);
+        border-bottom: 2px solid rgba(var(--dark-100), .8);
+    }
+
+    .contentnav {
+        flex-grow: 1;
+        flex-shrink: 0;
+        background: rgba(var(--dark-300), .8);
+        border-bottom: 2px solid rgba(var(--dark-200), .8);
+    }
+}
+
+.main {
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    bottom: 0px;
+    left: 70px;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: stretch;
+
+    .channels {
+        width: 250px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        background: rgb(var(--dark-200));
+    }
+
+    .content {
+        position: relative;
+        flex-grow: 1;
+        flex-shrink: 0;
+        background: rgb(var(--dark-300));
+        display: flex;
+        flex-direction: column;
+        justify-content: stretch;
+        align-items: stretch;
+
+        .messages {
+            flex-grow: 1;
+            flex-shrink: 0;
+        }
+
+        .area {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            flex-grow: 0;
+            flex-shrink: 1;
+            height: 50px;
+            
+            .input {
+                position: absolute;
+                inset: 15px;
+                top: -10px;
+                border-radius: 7px;
+                background: rgb(var(--dark-200));
+                display: flex;
+                justify-content: stretch;
+                align-items: center;
+
+                .media {
+                    padding: 12px;
+                    font-size: 23px !important;
+                    border-top-left-radius: 7px;
+                    border-bottom-left-radius: 7px;
+                    color: rgb(var(--light-200));
+                    cursor: pointer;
+                }
+
+                .text {
+                    border: none;
+                    background: transparent;
+                    color: rgb(var(--light-200));
+                    resize: none;
+                    scrollbar-gutter: stable;
+                    flex-grow: 1;
+                    flex-shrink: 0;
+                    padding: 0px;
+                    height: calc(1em + 2px);
+
+                    &:focus-visible {
+                        outline: none;
+                    }
+
+                    &::placeholder {
+                        color: rgb(var(--light-500));
+                    }
+                }
+            }
+        }    
+    }
+
+    .users {
+        width: 250px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        background: rgb(var(--dark-200));
+    }
+}

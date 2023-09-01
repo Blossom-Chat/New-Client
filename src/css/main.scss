@@ -18,7 +18,7 @@
     --light-300: 170, 170, 170;
     --light-400: 153, 153, 153;
     --light-500: 119, 119, 119;
-    --light-500: 102, 102, 102;
+    --light-600: 102, 102, 102;
 
     --font-family: sans-serif;
 
@@ -45,7 +45,7 @@ body {
     border-radius: 2px;
 }
 
-::placeholder {
+*::placeholder {
     font-family: var(--font-family);
     color: rgb(var(--light-600));
 }
