@@ -50,22 +50,12 @@ async function load() {
     return JSON.parse(atob(save))
 };
 
-async function store(key, insert) {
-    Storage[key] = insert
-    await save()
-};
-
-async function remove(key) {
-    delete Storage[key]
-    await save()
-};
-
 window.addEventListener('load', async () => {
     Storage = await load()
 
     window.__TAURI__.window.appWindow.onCloseRequested(async e => {
         await save()
-        window.close()
+        // window.close()
     })
 
     setInterval(save, 10000)
@@ -79,7 +69,7 @@ window.addEventListener('load', async () => {
 
         if (res.success == false) {
             Router.display('login')
-            remove('authkey')
+           delete Storage.authkey
         }
         else Router.display('home')
     } else Router.display('login')

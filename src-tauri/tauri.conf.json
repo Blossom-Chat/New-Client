@@ -26,7 +26,8 @@
         "all": true
       },
       "window": {
-        "all": true
+        "all": false,
+        "close": true
       }
     },
     "bundle": {
