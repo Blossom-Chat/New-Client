@@ -63,7 +63,10 @@ async function remove(key) {
 window.addEventListener('load', async () => {
     Storage = await load()
 
-    window.__TAURI__.window.appWindow.onCloseRequested(async e => await save())
+    window.__TAURI__.window.appWindow.onCloseRequested(async e => {
+        await save()
+        window.close()
+    })
 
     setInterval(save, 10000)
 
