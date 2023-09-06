@@ -14,7 +14,10 @@
     "allowlist": {
       "all": false,
       "fs": {
-        "all": true,
+        "all": false,
+        "readFile": true,
+        "writeFile": true,
+        "exists": true,
         "scope": [
           "**"
         ]
