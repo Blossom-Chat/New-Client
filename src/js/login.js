@@ -1,4 +1,5 @@
-(function () {
+(async function () {
+    console.log(Date.now())
     let test = true
     let box = document.querySelector('.opaque > div')
     let boxheight = document.querySelector('.opaque > div').getBoundingClientRect().height
@@ -120,6 +121,7 @@
     let processing = false
 
     async function submit() {
+        if (processing) return
         processing = true
         let allfilled = true
         document.querySelectorAll('input').forEach(i => {

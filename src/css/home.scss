@@ -22,7 +22,7 @@
     background: rgb(var(--dark-500));
 
     .channelnav {
-        width: 250px;
+        width: 200px;
         flex-grow: 0;
         flex-shrink: 0;
         background: rgba(var(--dark-200), .8);
@@ -49,7 +49,7 @@
     justify-content: stretch;
 
     .channels {
-        width: 250px;
+        width: 200px;
         flex-grow: 0;
         flex-shrink: 0;
         background: rgb(var(--dark-200));
@@ -71,14 +71,16 @@
         }
 
         .area {
+            --mult: 1;
             position: absolute;
             bottom: 0px;
             left: 0px;
             right: 0px;
             flex-grow: 0;
             flex-shrink: 1;
-            height: 50px;
-            
+            font-size: 15px;
+            height: calc(50px + ((1em) * (var(--mult) - 1)));
+
             .input {
                 position: absolute;
                 inset: 15px;
@@ -87,15 +89,15 @@
                 background: rgb(var(--dark-200));
                 display: flex;
                 justify-content: stretch;
-                align-items: center;
+                align-items: flex-start;
 
-                .media {
+                .material-symbols-rounded {
                     padding: 12px;
-                    font-size: 23px !important;
-                    border-top-left-radius: 7px;
-                    border-bottom-left-radius: 7px;
+                    font-size: 21px;
                     color: rgb(var(--light-200));
                     cursor: pointer;
+                    border: none;
+                    background: transparent;
                 }
 
                 .text {
@@ -106,8 +108,11 @@
                     scrollbar-gutter: stable;
                     flex-grow: 1;
                     flex-shrink: 0;
-                    padding: 0px;
-                    height: calc(1em + 2px);
+                    padding: 15px 0px;
+                    height: calc((1em + 1.7px) * var(--mult));
+                    padding-left: 3px;
+                    text-overflow: ellipsis;
+                    overflow-x: hidden;
 
                     &:focus-visible {
                         outline: none;
@@ -115,14 +120,25 @@
 
                     &::placeholder {
                         color: rgb(var(--light-500));
+                        max-height: calc(1em + 1.7px);
+                        width: 100%;
+                        z-index: 3;
+                        white-space: nowrap;
                     }
                 }
+
+                div {
+                    margin: 5px 0px;
+                    width: 1px;
+                    height: calc(100% - 10px);
+                    background: rgb(var(--dark-400));
+                }
             }
-        }    
+        }
     }
 
     .users {
-        width: 250px;
+        width: 200px;
         flex-grow: 0;
         flex-shrink: 0;
         background: rgb(var(--dark-200));

@@ -16,7 +16,7 @@
   --light-300: 170, 170, 170;
   --light-400: 153, 153, 153;
   --light-500: 119, 119, 119;
-  --light-500: 102, 102, 102;
+  --light-600: 102, 102, 102;
   --font-family: sans-serif;
   --online: 59, 165, 93;
   --idle: 250, 168, 26;
@@ -41,12 +41,12 @@ body {
   border-radius: 2px;
 }
 
-::-moz-placeholder {
+*::-moz-placeholder {
   font-family: var(--font-family);
   color: rgb(var(--light-600));
 }
 
-::placeholder {
+*::placeholder {
   font-family: var(--font-family);
   color: rgb(var(--light-600));
 }
@@ -126,5 +126,5 @@ a:active {
   }
 }
 .material-symbols-rounded {
-  font-size: 20px !important;
+  font-size: 20px;
 }/*# sourceMappingURL=main.css.map */

@@ -6,7 +6,7 @@ window.Router = {
 
     /**
      * Displays a page from the /pages/ folder.
-     * @param {string} page The HTML file to load.
+     * @param {string} page The HTML file to load. 
      * @param {string|boolean} [script] The JS file to load.
      * @param {string|boolean} [style] The CSS file to load.
      * @returns A boolean depicting if the function succeeded.
@@ -21,8 +21,8 @@ window.Router = {
 
             await new Promise(r => {
                 function chk() {
-                    if (!document.styleSheets[1]) return setTimeout(chk, 200)
-                    if (!document.styleSheets[1].cssRules && (!document.styleSheets[1].rules || !document.styleSheets[1].rules.length)) return setTimeout(chk, 200)
+                    if (!document.styleSheets[1]) return setTimeout(chk, 100)
+                    if (!document.styleSheets[1].cssRules && (!document.styleSheets[1].rules || !document.styleSheets[1].rules.length)) return setTimeout(chk, 100)
                     r()
                 }
 
