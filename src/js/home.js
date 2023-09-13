@@ -1,25 +1,27 @@
 (async function () {
     let info = await fetch('https://blossom.kontroll.dev/user/find?id=' + Storage.id).then(a => a.json())
 
+    window.Socket = new WebSocket('wss://blossom.kontroll.dev/socket/')
+
     let text = document.querySelector('.text')
     let p = false
 
     let m = 1 / 15
+
+    function setmult(x) {
+        document.querySelector('.main .content .area').setAttribute('style', '--mult: ' + x)
+    }
 
     async function height() {
         if (p) return
         p = true
 
         ///
-        function setmult(x) {
-            document.querySelector('.main .content .area').setAttribute('style', '--mult: ' + x)
-        }
-
         setmult(1)
 
-        let mult = (text.scrollHeight - 45) * m + 1
+        if (text.scrollHeight < 256) {
+            let mult = (text.scrollHeight - 30) * m
         
-        if (mult < 15) {
             setmult(Math.floor(mult))
         } else setmult(15)
         ///
