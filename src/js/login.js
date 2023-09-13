@@ -1,5 +1,4 @@
 (async function () {
-    console.log(Date.now())
     let test = true
     let box = document.querySelector('.opaque > div')
     let boxheight = document.querySelector('.opaque > div').getBoundingClientRect().height

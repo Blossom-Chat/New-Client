@@ -47,7 +47,10 @@ async function load() {
     if (!(await fs.exists(path))) return {}
 
     let save = await fs.readTextFile(path)
-    return JSON.parse(atob(save))
+
+    console.log(save)
+
+    try { return JSON.parse(atob(save)) } catch { return {} }
 };
 
 window.addEventListener('load', async () => {
