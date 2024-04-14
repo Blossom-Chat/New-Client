@@ -8,46 +8,6 @@
   overflow: auto;
   background: rgb(var(--dark-100));
 }
-.servers button {
-  font-size: 30px;
-  margin: 10px;
-  margin-top: 0px;
-  width: 50px;
-  height: 50px;
-  padding: 0px;
-  border-radius: 20px;
-  border: none;
-  background: rgb(var(--dark-400));
-  color: rgb(var(--light-200));
-  cursor: pointer;
-  transition: all 200ms ease-out;
-  font-variation-settings: "FILL" 1, "wght" 300, "GRAD" 200, "opsz" 40;
-}
-.servers button:hover {
-  background: rgb(var(--dark-600));
-  color: rgb(var(--light-100));
-  border-radius: 10px;
-}
-.servers div {
-  margin: 10px;
-  margin-top: 0px;
-  height: 1px;
-  width: calc(100% - 20px);
-  background: rgb(var(--dark-400));
-}
-.servers .server {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-.servers .server img {
-  flex-grow: 1;
-}
-.servers .selected {
-  background: rgb(var(--dark-600));
-  color: rgb(var(--light-100));
-  border-radius: 10px;
-}
 
 .topnav {
   position: absolute;
@@ -187,4 +147,97 @@
   flex-direction: column;
   justify-content: stretch;
   align-items: stretch;
-}/*# sourceMappingURL=home.css.map */
+}
+.main .content .messages {
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+.main .content .area {
+  --mult: 1;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  font-size: 15px;
+  height: calc(50px + 1em * (var(--mult) - 1));
+}
+.main .content .area .input {
+  position: absolute;
+  inset: 15px;
+  top: -10px;
+  border-radius: 10px;
+  background: rgb(var(--dark-200));
+  display: flex;
+  justify-content: stretch;
+  align-items: flex-start;
+}
+.main .content .area .input .material-symbols-rounded {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  margin-right: 0px;
+  width: 35px;
+  height: 35px;
+  border-radius: 6px;
+  font-size: 22px;
+  color: rgb(var(--light-200));
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+.main .content .area .input .material-symbols-rounded:hover {
+  background: rgb(var(--dark-300));
+}
+.main .content .area .input .material-symbols-rounded:first-child {
+  margin-right: 5px;
+}
+.main .content .area .input .material-symbols-rounded:last-child {
+  margin-right: 5px;
+}
+.main .content .area .input .text {
+  border: none;
+  background: transparent;
+  color: rgb(var(--light-200));
+  resize: none;
+  scrollbar-gutter: stable;
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding: 15px 0px;
+  height: calc((1em + 1.7px) * var(--mult));
+  padding-left: 3px;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  width: 0px;
+}
+.main .content .area .input .text:focus-visible {
+  outline: none;
+}
+.main .content .area .input .text::-moz-placeholder {
+  color: rgb(var(--light-500));
+  max-height: calc(1em + 1.7px);
+  width: 100%;
+  z-index: 3;
+  white-space: nowrap;
+}
+.main .content .area .input .text::placeholder {
+  color: rgb(var(--light-500));
+  max-height: calc(1em + 1.7px);
+  width: 100%;
+  z-index: 3;
+  white-space: nowrap;
+}
+.main .content .area .input div {
+  margin: 5px 0px;
+  width: 1px;
+  height: calc(100% - 10px);
+  background: rgb(var(--dark-400));
+}
+.main .users {
+  width: 250px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  background: rgb(var(--dark-200));
+}/*# sourceMappingURL=server.css.map */

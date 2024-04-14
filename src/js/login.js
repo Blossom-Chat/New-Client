@@ -1,4 +1,13 @@
-(async function () {
+if (LoadQueue.userData) login()
+else{
+    document.addEventListener('itemLoaded', () => {
+        if (LoadQueue.userData) login()
+    })
+}
+
+async function login() {
+    await SaveData.clear()
+
     let test = true
     let box = document.querySelector('.opaque > div')
     let boxheight = document.querySelector('.opaque > div').getBoundingClientRect().height
@@ -92,7 +101,7 @@
     console.log(bg, credit[bg])
 
     document.querySelector('.login').style.backgroundImage = `url("/src/backgrounds/${credit[bg].file}")`
-    document.querySelector('.author').innerHTML = `<p>${credit[bg].photo} <span>by <a href="javascript:void(0)" onclick="open_link('${credit[bg].link}')">${credit[bg].name}</a> on <i>Unsplash</i></span></p>`
+    document.querySelector('.author').innerHTML = `<p>${credit[bg].photo} <span>by <a href="javascript:void(0)" onclick="Utils.openLink('${credit[bg].link}')">${credit[bg].name}</a> on <i>Unsplash</i></span></p>`
 
     window.LOGIN_BG = bg
     window.LOGIN_CACHEPLEASE = new Image()
@@ -132,7 +141,7 @@
         document.querySelector('[data-submit]').innerHTML = '<span loading style="width: 12px"></span>'
 
         let auth = await new Promise(async resolve => {
-            if (Router.currentpage == 'login') {
+            if (Router.currentPage == 'login') {
                 document.querySelectorAll('.opaque h3')[0].innerHTML = 'Username or Email'
                 document.querySelectorAll('.opaque h3')[1].innerHTML = 'Password'
 
@@ -210,8 +219,8 @@
             }
         })
 
-        Storage.authkey = auth.authkey
-        Storage.id = auth.id
+        SaveData.set('authkey', auth.authkey)
+        SaveData.set('id', auth.id)
 
         await new Promise(r => setTimeout(r, 1000))
 
@@ -223,4 +232,4 @@
         if (!e.repeat && e.key == 'Enter') submit()
     }
 
-})()
+}

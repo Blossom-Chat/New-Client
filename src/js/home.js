@@ -1,36 +1,29 @@
-(async function () {
-    let info = await fetch('https://blossom.kontroll.dev/user/find?id=' + Storage.id).then(a => a.json())
+if (LoadQueue.userData) home()
+else{
+    document.addEventListener('itemLoaded', () => {
+        if (LoadQueue.userData) home()
+    })
+}
 
-    window.Socket = new WebSocket('wss://blossom.kontroll.dev/socket/')
+async function home() {
+    let info = await fetch('https://blossom.kontroll.dev/user/find?id=' + SaveData.get('id')).then(a => a.json())
 
-    let text = document.querySelector('.text')
-    let p = false
+    console.log(info)
 
-    let m = 1 / 15
+    document.querySelector('.user .inner .image').src = info.avatarurl + '?size=38'
+    document.querySelector('.user .popup .banner .image').src = info.avatarurl + '?size=80'
 
-    function setmult(x) {
-        document.querySelector('.main .content .area').setAttribute('style', '--mult: ' + x)
-    }
+    document.querySelector('.user .inner .stack .name').innerHTML = info.username
+    document.querySelector('.user .popup .details .name .username').innerText = info.username
 
-    async function height() {
-        if (p) return
-        p = true
+    document.querySelector('.user .popup .details .name .discriminator').innerText = '#' + info.discriminator
 
-        ///
-        setmult(1)
+    document.querySelector('.user .popup .banner').style.background = `rgb(${info.bannerColour.join(',')})`
 
-        if (text.scrollHeight < 256) {
-            let mult = (text.scrollHeight - 30) * m
-        
-            setmult(Math.floor(mult))
-        } else setmult(15)
-        ///
+    servers()
+}
 
-        p = false
-    }
-
-    text.oninput = height
-    window.onresize = height
-
-    height()
-})()
+async function servers() {
+    let joined = await fetch(`https://blossom.kontroll.dev/user/servers?id=${SaveData.get('id')}&authkey=${SaveData.get('authkey')}`).then(a => a.json())
+    console.log(joined)
+}

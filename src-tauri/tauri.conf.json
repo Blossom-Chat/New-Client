@@ -1,9 +1,9 @@
 {
   "build": {
-    "beforeDevCommand": "",
-    "beforeBuildCommand": "",
+    "beforeBuildCommand": "node versionbump.js",
+    "beforeBundleCommand": "echo sex",
     "devPath": "../src",
-    "distDir": "../src",
+    "distDir": "../minsrc",
     "withGlobalTauri": true
   },
   "package": {
@@ -27,7 +27,8 @@
       },
       "window": {
         "all": false,
-        "close": true
+        "close": true,
+        "requestUserAttention": true
       }
     },
     "bundle": {

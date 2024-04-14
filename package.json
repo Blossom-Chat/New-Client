@@ -1,10 +1,11 @@
 {
   "name": "blossom",
   "private": true,
-  "version": "0.1.2",
+  "version": "0.2.0",
   "type": "module",
   "scripts": {
-    "tauri": "tauri"
+    "tauri": "tauri",
+    "bump": "node versionbump.js"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1.4.0"

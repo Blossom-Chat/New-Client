@@ -2,13 +2,13 @@ window.Router = {
     /**
      * The current page
      */
-    currentpage: null,
+    currentPage: null,
 
     /**
      * Displays a page from the /pages/ folder.
      * @param {string} page The HTML file to load. 
-     * @param {string|boolean} [script] The JS file to load.
-     * @param {string|boolean} [style] The CSS file to load.
+     * @param {string|boolean|array} [script] The JS file(s) to load.
+     * @param {string|boolean} [style] The CSS file(s) to load.
      * @returns A boolean depicting if the function succeeded.
      */
     async display(page, script = null, style = null) {
@@ -36,13 +36,19 @@ window.Router = {
         if (content == null) return false
         document.body.innerHTML = content
 
-        if (script != false) {
+        if (typeof script == 'object' && script != null) {
+            script.forEach(async s => {
+                let js = await fetch(`/js/${s ?? page}.js`).then(a => { if (a.status == 404) return null; return a.text() })
+                if (js == null) return false
+                eval(js)
+            })
+        } else if (script != false) {
             let js = await fetch(`/js/${script ?? page}.js`).then(a => { if (a.status == 404) return null; return a.text() })
             if (js == null) return false
             eval(js)
         }
 
-        this.currentpage = page
+        this.currentPage = page
 
         return true
     }
